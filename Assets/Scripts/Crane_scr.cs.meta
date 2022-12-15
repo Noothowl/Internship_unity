@@ -3,7 +3,11 @@ guid: cef7778554a27574eac173fb6ae74013
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - craneTop: {instanceID: 0}
+  - hook: {instanceID: 0}
+  - lineRenderer: {instanceID: 0}
+  - cableAnchorPosition: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

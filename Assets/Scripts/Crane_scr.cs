@@ -17,7 +17,6 @@ public class Crane_scr : MonoBehaviour
     public GameObject craneTop;         // top of the crane which rotates
     public GameObject hook;             // the hook object
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +38,7 @@ public class Crane_scr : MonoBehaviour
             MoveHookForward();
         if (Input.GetKey(KeyCode.D))
             MoveHookBackwards();
+
     }
 
 

@@ -501,7 +501,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: -9211935591143514483, guid: 80f8c55dd24798b44a7dfcd5462adc96, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -585,6 +585,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 80f8c55dd24798b44a7dfcd5462adc96, type: 3}
   m_PrefabInstance: {fileID: 964585287}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &964585291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964585290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e93d3988aa011458458cc6f165e7e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 964585289}
+  cableAnchorPosition: {fileID: 35978134}
 --- !u!1001 &1006068846
 PrefabInstance:
   m_ObjectHideFlags: 0

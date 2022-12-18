@@ -5,12 +5,12 @@ using UnityEngine;
 public class Crane_scr : MonoBehaviour
 {   //vars
     // speeds
-    public float turnSpeed;             // rate at which the crane can rotate on the Y axis
-    public float hookVerticalSpeed;     // rate at which the hook can be raised and lowered
-    public float hookHorizontalSpeed;   // rate at which the hook can be moved horizontally along the crane
+    public float turnSpeed=5;             // rate at which the crane can rotate on the Y axis
+    public float hookVerticalSpeed=5;     // rate at which the hook can be raised and lowered
+    public float hookHorizontalSpeed = 5;   // rate at which the hook can be moved horizontally along the crane
     // hook
     private float hookRaiseLimit = 0;        // the highest the hook can be raised
-    private float hookLowerLimit = -10;        // the lowest the hook can be lowered
+    private float hookLowerLimit = -14;        // the lowest the hook can be lowered
     private float hookForwardsLimit = -13;     // the furthest forward the hook can be moved
     private float hookBackwardsLimit = -3;    // the furthest backwards the hook can be moved
     // components
@@ -38,6 +38,8 @@ public class Crane_scr : MonoBehaviour
             MoveHookForward();
         if (Input.GetKey(KeyCode.D))
             MoveHookBackwards();
+
+
 
     }
 
@@ -89,5 +91,6 @@ public class Crane_scr : MonoBehaviour
             hook.transform.localPosition += Vector3.right * hookHorizontalSpeed * Time.deltaTime;
         }
     }
+
 
 }

@@ -16,6 +16,11 @@ public class Hook_scr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cable();
+    }
+
+    public void Cable()
+    {
         // make the cable anchor follow us along the crane
         Vector3 newPos = cableAnchorPosition.transform.localPosition;
         newPos.x = transform.localPosition.x;

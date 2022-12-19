@@ -9,10 +9,10 @@ public class Crane_scr : MonoBehaviour
     public float hookVerticalSpeed=5;     // rate at which the hook can be raised and lowered
     public float hookHorizontalSpeed = 5;   // rate at which the hook can be moved horizontally along the crane
     // hook
-    private float hookRaiseLimit = 0;        // the highest the hook can be raised
-    private float hookLowerLimit = -14;        // the lowest the hook can be lowered
-    private float hookForwardsLimit = -13;     // the furthest forward the hook can be moved
-    private float hookBackwardsLimit = -3;    // the furthest backwards the hook can be moved
+    protected float hookRaiseLimit = 0;        // the highest the hook can be raised
+    protected float hookLowerLimit = -14;        // the lowest the hook can be lowered
+    protected float hookForwardsLimit = -13;     // the furthest forward the hook can be moved
+    protected float hookBackwardsLimit = -3;    // the furthest backwards the hook can be moved
     // components
     public GameObject craneTop;         // top of the crane which rotates
     public GameObject hook;             // the hook object
@@ -39,13 +39,10 @@ public class Crane_scr : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             MoveHookBackwards();
 
-
-
     }
 
 
     //methods
-
     // rotates the crane clockwise along the Y axis
     public void TurnClockwise()
     {
@@ -56,8 +53,6 @@ public class Crane_scr : MonoBehaviour
     {
         craneTop.transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
     }
-
-
     // moves the hook down
     public void LowerHook()
     {
@@ -74,7 +69,6 @@ public class Crane_scr : MonoBehaviour
             hook.transform.localPosition += Vector3.up * hookVerticalSpeed * Time.deltaTime;
         }
     }
-
     // moves the hook forwards horizontally along the crane
     public void MoveHookForward()
     {

@@ -7,16 +7,26 @@ public class Hook_scr : MonoBehaviour
     //components
     public LineRenderer lineRenderer;
     public GameObject cableAnchorPosition;
+    public Rigidbody rb;
+    public bool disengaged = false;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         Cable();
+
+        if (Input.GetKeyDown(KeyCode.N)) {
+            disengaged = !disengaged;
+            Neutral(disengaged);
+        }
+
     }
 
     public void Cable()
@@ -29,4 +39,16 @@ public class Hook_scr : MonoBehaviour
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, cableAnchorPosition.transform.position);
     }
+    public void Neutral(bool disengaged)
+    {
+        if (disengaged == true) {
+            rb.isKinematic = false;
+
+        }
+        else if (disengaged == false){
+            rb.isKinematic = true;
+        }
+
+    }
 }
+

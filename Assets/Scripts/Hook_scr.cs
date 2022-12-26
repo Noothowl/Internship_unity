@@ -8,7 +8,9 @@ public class Hook_scr : MonoBehaviour
     public LineRenderer lineRenderer;
     public GameObject cableAnchorPosition;
     public Rigidbody rb;
-    public bool disengaged = false;
+   
+
+    protected bool disengaged = false;
     
     
     // Start is called before the first frame update
@@ -46,9 +48,18 @@ public class Hook_scr : MonoBehaviour
 
         }
         else if (disengaged == false){
+            transform.rotation = Quaternion.identity;
+            transform.position =  new Vector3(cableAnchorPosition.transform.position.x,transform.position.y,cableAnchorPosition.transform.position.z);
             rb.isKinematic = true;
         }
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
+
 }
 

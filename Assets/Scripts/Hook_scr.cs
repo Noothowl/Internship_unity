@@ -9,7 +9,6 @@ public class Hook_scr : MonoBehaviour
     public GameObject cableAnchorPosition;
     public Rigidbody rb;
    
-
     protected bool disengaged = false;
     
     
@@ -54,12 +53,6 @@ public class Hook_scr : MonoBehaviour
         }
 
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
 
 }
 

@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hook
-  - Hook_pickup
+  - Pullable
+  - Score Zone
   layers:
   - Default
   - TransparentFX

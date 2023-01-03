@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Crane_scr : MonoBehaviour
 {   //vars
@@ -17,15 +18,20 @@ public class Crane_scr : MonoBehaviour
     public GameObject craneTop;         // top of the crane which rotates
     public GameObject hook;             // the hook object
 
+    public int totalScore = 0;
+    public Text TotalScoretext;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        TotalScoretext.text = "Total Score: " + totalScore;
     }
 
     // Update is called once per frame
     void Update()
     {
+        #region MovementInput
         if (Input.GetKey(KeyCode.E))
             TurnClockwise();
         if (Input.GetKey(KeyCode.Q))
@@ -38,10 +44,11 @@ public class Crane_scr : MonoBehaviour
             MoveHookForward();
         if (Input.GetKey(KeyCode.D))
             MoveHookBackwards();
+        #endregion
 
     }
 
-
+    #region MovementMethods
     //methods
     // rotates the crane clockwise along the Y axis
     public void TurnClockwise()
@@ -85,6 +92,14 @@ public class Crane_scr : MonoBehaviour
             hook.transform.localPosition += Vector3.right * hookHorizontalSpeed * Time.deltaTime;
         }
     }
+    #endregion
 
 
+    #region ScoreMethods
+    public void AddScore(int scoreinput) {
+        totalScore+= scoreinput;
+        TotalScoretext.text = "Total Score: " + totalScore;
+    }
+
+    #endregion
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -8,10 +10,17 @@ public class Pullable_script : MonoBehaviour
 {
     protected Rigidbody rb;
     protected GameObject pb;
-    protected int Obj_score;
+
+    protected int obj_score;
+    
+    public Text TypeScoretext;
+
+    protected Crane_scr crane_script;
+    protected GameObject crane;
+
+
 
     [SerializeField] private Obj_Type obj_Type;
-
     enum Obj_Type
     {
         Madera,Concreto,Otros
@@ -20,15 +29,14 @@ public class Pullable_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pb = GameObject.Find("Physic_obj");
+        
         rb = gameObject.GetComponent<Rigidbody>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        crane = GameObject.FindGameObjectWithTag("Player");
+        crane_script = crane.gameObject.GetComponent<Crane_scr>();
+
+
         ScorePoints();
-
     }
 
     private void OnTriggerStay(Collider other)
@@ -41,37 +49,37 @@ public class Pullable_script : MonoBehaviour
             rb.isKinematic = true;
 
             transform.position = other.transform.GetChild(1).position;
-            //transform.parent = other.transform;
-            Debug.Log("Ptje: "+Obj_score+" tipo: "+obj_Type);
+
+            TypeScoretext.text = "T: "+obj_Type+" / Score: "+obj_score;
         }
         else
         {   
-            
-
-            
             rb.useGravity = true;
             rb.isKinematic = false;
+            TypeScoretext.text = "T: N" + " / Score: N";
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Score Zone"))
+        {
+            crane_script.AddScore(obj_score);
+        }
+    }
 
-
-    private void ScorePoints() 
+    public int ScorePoints() 
     {
         switch (obj_Type)
         {
             case Obj_Type.Madera:
-                Obj_score = 15;
-                break;
+                return obj_score = 15;
             case Obj_Type.Concreto:
-                Obj_score = 35;
-                break;
+                return obj_score = 35;
             case Obj_Type.Otros:
-                Obj_score = 5;
-                break;
-
+                return obj_score = 5;
             default:
-                break;
+                return obj_score = 0;
         }
     }
 }

@@ -404,7 +404,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1100926956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,6 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f54eb7e5b90f940a5fd4cf4d897091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alert: 0
 --- !u!4 &2039372993
 Transform:
   m_ObjectHideFlags: 0

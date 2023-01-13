@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,7 +10,6 @@ using UnityEngine.UI;
 public class Pullable_script : MonoBehaviour
 {
     protected Rigidbody rb;
-    protected GameObject pb;
 
     protected int obj_score;
     
@@ -19,25 +19,35 @@ public class Pullable_script : MonoBehaviour
     protected GameObject crane;
 
 
-
-    [SerializeField] private Obj_Type obj_Type;
-    enum Obj_Type
+    [SerializeField] public Obj_Type obj_Type;
+    public enum Obj_Type
     {
-        Madera,Concreto,Otros
+        Wood,Steel,Non_Specified
     }
 
+    void Awake()
+    {
+        SaveSystem_script.pullables.Add(this);
+    }
+
+    void OnDestroy()
+    {
+        SaveSystem_script.pullables.Remove(this);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+
         rb = gameObject.GetComponent<Rigidbody>();
 
         crane = GameObject.FindGameObjectWithTag("Player");
         crane_script = crane.gameObject.GetComponent<Crane_scr>();
 
-
         ScorePoints();
     }
+
+   
+    
 
     private void OnTriggerStay(Collider other)
     {
@@ -72,14 +82,15 @@ public class Pullable_script : MonoBehaviour
     {
         switch (obj_Type)
         {
-            case Obj_Type.Madera:
+            case Obj_Type.Wood:
                 return obj_score = 15;
-            case Obj_Type.Concreto:
+            case Obj_Type.Steel:
                 return obj_score = 35;
-            case Obj_Type.Otros:
+            case Obj_Type.Non_Specified:
                 return obj_score = 5;
             default:
                 return obj_score = 0;
         }
     }
+
 }
